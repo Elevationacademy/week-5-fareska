@@ -20,28 +20,26 @@ const store = [
 ]
 
 app.get(`/priceCheck/:item`, (req, res) => {
-//    let urlInput = req.params.item
     for (let i in store){
-        if (store[i].name == req.params.item){
-            res.send(`the price is:${store[i].price}`)
+        if (store[i].name === req.params.item){
+            res.send(store[i])
         }else {res.send(`the price is:null`)}
+    } 
+})
+
+app.get(`/buy/:name`, (req, res) => {
+    for (let i in store){
+        if (store[i].name === req.params.name){
+            if(store[i].inventory>1){
+                store[i].inventory--
+                res.send(store[i])
+            } else {res.send(`The item out of stock`)}
+        }else {res.send(`The item dose not exist`)}
     } 
 })
 
 
 
-
-
-
-
-// app.get(`/priceCheck/:name`, (req, res) => {
-//     const itemName = req.params.name
-//     for (let i in store){
-//         if (store[i].name == itemName ){
-//             res.send(`the price is`)
-//          }else {res.send(`the price is:null`)}
-//     }
-// })
 
 const port = 3000
 app.listen(port, ()=>console.log(`Running server on port ${port}`))

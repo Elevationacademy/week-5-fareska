@@ -2,11 +2,11 @@
 //     div.style.backgroundColor = "#3498db"
 // }
 
-// const fetchBookData = function () {
-//     let input = $("#book-input").val()
+const fetchBookData = function () {
+    let input = $("#book-input").val()
 
-//     $.get(`books/${input}`, function (bookData) {
-//         $("body").append(`<div>${bookData.title} - ${bookData.author}`)
-//         console.log(bookData)
-//     })
-// }
+    $.get(`books/${input}`, function (bookData) {
+        $("body").append(`<div>${bookData.title} - ${bookData.author}`)
+        console.log(bookData)
+    })
+}
