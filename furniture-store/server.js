@@ -41,5 +41,5 @@ app.get(`/buy/:name`, (req, res) => {
 
 
 
-const port = 3000
-app.listen(port, ()=>console.log(`Running server on port ${port}`))
+// const port = 3000
+// app.listen(port, ()=>console.log(`Running server on port ${port}`))
